@@ -38,18 +38,17 @@ input[type="range"]:focus {
 
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  background: transparent;
-  border: none;
-}
-
-input[type="range"]::-moz-slider-thumb {
-  -webkit-appearance: none;
   height: 16px;
   width: 16px;
 }
 
+input[type="range"]::-moz-slider-thumb {
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+}
+
 .track {
-  background: lightcyan;
   width: 100%;
   height: 1rem;
   position: relative;
