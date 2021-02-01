@@ -9,7 +9,8 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body{
-    background: #1b1b1b
+    background: #1b1b1b;
+    font-family: "Inter", sans-serif;
 }
 
 button{
@@ -21,6 +22,7 @@ button{
     background: transparent;
     color:white;
     transition: all 0.5s ease;
+    font-family: "Inter", sans-serif;
     &:hover{
         background-color: #23d997;
         color: white;
@@ -36,6 +38,7 @@ h2{
     }
     h4{
         font-weight: bold;
+        font-size: 2rem;
     }
     span{
         font-weight: bold;
