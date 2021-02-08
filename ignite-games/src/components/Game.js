@@ -21,8 +21,6 @@ const StyledGame = styled(motion.div)`
     width: 95%;
     height: 40vh;
     object-fit: cover;
-    padding: 0rem 0rem 1rem;
-    border-radius: 0.5rem;
   }
 `;
 
