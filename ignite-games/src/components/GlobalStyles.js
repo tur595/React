@@ -5,6 +5,7 @@ const GlobalStyles = createGlobalStyle`
         margin:0;
         padding: 0;
         box-sizing: border-box;
+        background: #252525;
     }
     html{
         &::-webkit-scrollbar{
@@ -35,6 +36,9 @@ const GlobalStyles = createGlobalStyle`
         a{
             text-decoration: none;
             color: #333;
+        }
+        img{
+            display:block;
         }
     }
 `;
