@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`
         margin:0;
         padding: 0;
         box-sizing: border-box;
-        background: #252525;
+        //background: #252525;
     }
     html{
         &::-webkit-scrollbar{

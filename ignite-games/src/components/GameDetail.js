@@ -4,7 +4,8 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 //redux
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
+import { smallImage } from "../util";
 
 const GameDetail = () => {
   const history = useHistory();
@@ -31,24 +32,26 @@ const GameDetail = () => {
               <Info>
                 <h3>Platforms</h3>
                 <Platforms>
-                  {game.platforms &&
-                    game.platforms.map((data) => (
-                      <h3 key={data.platform.id}>{data.platform.name}</h3>
-                    ))}
+                  {game.platforms.map((data) => (
+                    <h3 key={data.platform.id}>{data.platform.name}</h3>
+                  ))}
                 </Platforms>
               </Info>
             </Stats>
             <Media>
-              <img src={game.background_image} alt="image" />
+              <img src={smallImage(game.background_image, 1280)} alt="image" />
             </Media>
             <Description>
               <p>{game.description_raw}</p>
             </Description>
             <div className="gallery">
-              {screen.results &&
-                screen.results.map((screen) => (
-                  <img src={screen.image} key={screen.id} alt="game" />
-                ))}
+              {screen.results.map((screen) => (
+                <img
+                  src={smallImage(screen.image, 1280)}
+                  key={screen.id}
+                  alt="game"
+                />
+              ))}
             </div>
           </Detail>
         </CardShadow>
