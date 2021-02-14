@@ -6,8 +6,15 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { Route, useHistory } from "react-router-dom";
 import { smallImage } from "../util";
+//images
+import playstation from "../img/playstation.svg";
+import steam from "../img/steam.svg";
+import xbox from "../img/xbox.svg";
+import nintendo from "../img/nintendo.svg";
+import apple from "../img/apple.svg";
+import gamepad from "../img/gamepad.svg";
 
-const GameDetail = () => {
+const GameDetail = ({ pathID }) => {
   const history = useHistory();
   //exit detail
   const exitDetailHandler = (e) => {
@@ -17,29 +24,55 @@ const GameDetail = () => {
       history.push("/");
     }
   };
+  //get platform images
+  const getPlatform = (platform) => {
+    if (platform.includes("PlayStation")) {
+      return playstation;
+    } else if (platform.includes("Xbox")) {
+      return xbox;
+    } else if (platform === "PC") {
+      return steam;
+    } else if (platform === "Nintendo Switch") {
+      return nintendo;
+    } else if (platform.includes("OS")) {
+      return apple;
+    } else {
+      return gamepad;
+    }
+  };
+
   //data
   const { screen, game, isLoading } = useSelector((state) => state.detail);
   return (
     <>
       {!isLoading && (
         <CardShadow className="shadow" onClick={exitDetailHandler}>
-          <Detail>
+          <Detail layoutId={pathID}>
             <Stats>
               <div className="rating">
-                <h3>{game.name}</h3>
+                <motion.h3 layoutId={`title ${pathID}`}>{game.name}</motion.h3>
                 <p>Rating: {game.rating}</p>
               </div>
               <Info>
                 <h3>Platforms</h3>
                 <Platforms>
                   {game.platforms.map((data) => (
-                    <h3 key={data.platform.id}>{data.platform.name}</h3>
+                    <img
+                      key={data.platform.id}
+                      src={getPlatform(data.platform.name)}
+                      alt={data.platform.name}
+                      title={data.platform.name}
+                    ></img>
                   ))}
                 </Platforms>
               </Info>
             </Stats>
             <Media>
-              <img src={smallImage(game.background_image, 1280)} alt="image" />
+              <motion.img
+                layoutId={`image ${pathID}`}
+                src={smallImage(game.background_image, 1280)}
+                alt="image"
+              />
             </Media>
             <Description>
               <p>{game.description_raw}</p>
@@ -68,6 +101,7 @@ const CardShadow = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 5;
   &::-webkit-scrollbar {
     width: 0.5rem;
   }
@@ -87,6 +121,7 @@ const Detail = styled(motion.div)`
   position: absolute;
   left: 10%;
   color: black;
+  z-index: 10;
   img {
     width: 100%;
   }
