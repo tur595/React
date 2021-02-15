@@ -143,6 +143,11 @@ const Detail = styled(motion.div)`
   img {
     width: 100%;
   }
+  .gallery {
+    img {
+      margin: 5rem 0rem;
+    }
+  }
 `;
 
 const Stats = styled(motion.div)`
