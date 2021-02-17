@@ -81,6 +81,26 @@ function chillHop() {
         "https://chillhop.com/wp-content/uploads/2020/06/49f6e32ca521fbad46a1b281e3893cf6254bf11d-1024x1024.jpg",
       audio: "https://mp3.chillhop.com/serve.php/?mp3=8266",
     },
+    {
+      name: "Zen",
+      artist: "Philanthrope, Ian Ewing, chromonicci",
+      id: uuidv4(),
+      color: ["#d4837c", "#FCF1D5"],
+      active: false,
+      cover:
+        "https://chillhop.com/wp-content/uploads/2020/07/4b06cedf68f3f842d3a0fc13ae62564dec6056c8-1024x1024.jpg",
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=8084",
+    },
+    {
+      name: "sopha",
+      artist: "Plusma, Von Wegen",
+      id: uuidv4(),
+      color: ["#d4837c", "#FCF1D5"],
+      active: false,
+      cover:
+        "https://chillhop.com/wp-content/uploads/2020/07/4b06cedf68f3f842d3a0fc13ae62564dec6056c8-1024x1024.jpg",
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=9061",
+    },
   ];
 }
 
