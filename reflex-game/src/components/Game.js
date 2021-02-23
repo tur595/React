@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const Game = ({ status, setStatus, top, left, start, replay, setReplay }) => {
-  let [delta, setDelta] = useState(null);
-  let [resultState, setResultState] = useState(false);
+  const [delta, setDelta] = useState(null);
+  const [resultState, setResultState] = useState(false);
   const blockClickHandler = () => {
     setDelta(Date.now() - start);
     setStatus(!status);

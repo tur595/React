@@ -5,19 +5,22 @@ import GlobalStyles from "./components/GlobalStyles";
 import styled from "styled-components";
 
 function App() {
-  let [status, setStatus] = useState(false);
-  let [start, setStart] = useState();
-  let [replay, setReplay] = useState(false);
+  const [status, setStatus] = useState(false);
+  const [start, setStart] = useState();
+  const [replay, setReplay] = useState(false);
   let top = Math.floor(Math.random() * 500);
   let left = Math.floor(Math.random() * 500);
   let waitTime = null;
 
   useEffect(() => {
-    waitTime = Math.random() * 5000;
-    setTimeout(() => {
-      setStatus(!status);
-      setStart(Date.now());
-    }, waitTime);
+    if (replay === true) {
+      waitTime = Math.random() * 5000;
+      setTimeout(() => {
+        setStatus(!status);
+        setStart(Date.now());
+        setReplay(false);
+      }, waitTime);
+    }
   }, [replay]);
 
   return (

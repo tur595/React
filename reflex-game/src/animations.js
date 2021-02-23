@@ -34,7 +34,7 @@ export const popup = {
 
 export const slide = {
   hidden: {
-    x: 1200,
+    x: 1500,
   },
   show: {
     x: -1200,
