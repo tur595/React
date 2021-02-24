@@ -37,11 +37,11 @@ export const slide = {
     x: 1500,
   },
   show: {
-    x: -1200,
+    x: -1700,
     transition: {
       ease: "linear",
       repeat: Infinity,
-      duration: 20,
+      duration: 30,
     },
   },
 };

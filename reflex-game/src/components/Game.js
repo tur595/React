@@ -26,6 +26,7 @@ const Game = ({
   const replayHandler = () => {
     setResultState(!resultState);
     setReplay(!replay);
+    setDelta(Number(delta));
     const playerInfo = {
       playerName,
       delta,
