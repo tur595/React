@@ -1,11 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import firebase from "../utils/firebase";
 
-const Game = ({ status, setStatus, top, left, start, replay, setReplay }) => {
+const Game = ({
+  status,
+  setStatus,
+  top,
+  left,
+  start,
+  replay,
+  setReplay,
+  playerName,
+}) => {
   const [delta, setDelta] = useState(null);
   const [resultState, setResultState] = useState(false);
+  const playerRef = firebase.database().ref("scores");
+
   const blockClickHandler = () => {
     setDelta(Date.now() - start);
     setStatus(!status);
@@ -15,15 +26,20 @@ const Game = ({ status, setStatus, top, left, start, replay, setReplay }) => {
   const replayHandler = () => {
     setResultState(!resultState);
     setReplay(!replay);
+    const playerInfo = {
+      playerName,
+      delta,
+    };
+    playerRef.push(playerInfo);
   };
 
   return (
     <StyledGame top={top} left={left}>
       <div onClick={blockClickHandler} className={`block ${status}`}></div>
       <div className={`result ${resultState}`}>
-        <h1>You reacted in {delta} miliseconds</h1>
+        <h1>You have reacted in {delta} miliseconds!</h1>
         <button onClick={replayHandler}>
-          <h1>Play again</h1>
+          <h1>Submit score and play again</h1>
         </button>
       </div>
     </StyledGame>
@@ -46,6 +62,7 @@ const StyledGame = styled.div`
     font-size: 45px;
     cursor: pointer;
     opacity: 1;
+    z-index: 5;
   }
   .block.false {
     opacity: 0;
@@ -65,12 +82,16 @@ const StyledGame = styled.div`
     opacity: 1;
     transition: 0.5s ease;
     button {
+      :hover {
+        background: #49d1ff;
+      }
       padding: 2rem;
       border: none;
       background: lightblue;
       cursor: pointer;
       top: 2rem;
       position: relative;
+      border-radius: 1rem;
     }
   }
   .result.false {

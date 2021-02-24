@@ -11,6 +11,14 @@ const GlobalStyles = createGlobalStyle`
         opacity: 0;
         background: transparent;
         border: transparent;
+        display: none;
+    }
+    &::-webkit-scrollbar-thumb {
+        display: none;
+
+    }
+     &::-webkit-scrollbar-track {
+        display: none;
     }
     html{
         body{
