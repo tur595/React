@@ -18,8 +18,12 @@ const Home = ({
   const [userInfo, setUserInfo] = useState(false);
 
   const submitHandler = () => {
-    setReplay(true);
-    setUserInfo(true);
+    if (playerName === "") {
+      return;
+    } else {
+      setReplay(true);
+      setUserInfo(true);
+    }
   };
 
   const handleOnChange = (e) => {
@@ -67,19 +71,27 @@ const StyledHome = styled.div`
     border-radius: 1rem;
     overflow: hidden;
     opacity: 1;
-    transition: 0.5s ease;
+    transition: 1s ease;
+    background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+    );
     button {
       padding: 1.3rem 3rem;
       top: 1rem;
       border: none;
-      background: lightblue;
+      color: #4d4d4d;
+      outline: none;
       cursor: pointer;
       top: 2rem;
       position: relative;
       font-weight: 700;
       border-radius: 0.3rem;
+      transition: 1s ease;
       :hover {
         background: #49d1ff;
+        transition: 1s ease;
       }
     }
     input {
@@ -89,11 +101,14 @@ const StyledHome = styled.div`
       top: 2rem;
       position: relative;
       font-size: large;
+      border-radius: 2rem;
+      border: none;
+      outline: none;
     }
   }
   .player-info.false {
     opacity: 0;
     pointer-events: none;
-    transition: 0.5s ease;
+    transition: 1s ease;
   }
 `;

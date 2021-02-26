@@ -77,7 +77,11 @@ const StyledScoreBoard = styled(motion.div)`
   right: 0;
   width: 20rem;
   height: 100%;
-  background-color: rgb(255, 248, 241);
+  background: linear-gradient(
+    to left top,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.5)
+  );
   box-shadow: 2px 2px 50px rgb(207, 205, 205);
   overflow: scroll;
   h1 {
@@ -92,6 +96,11 @@ const StyledScoreBoard = styled(motion.div)`
     padding-left: 1rem;
     display: flex;
     justify-content: space-between;
+    input {
+      outline: none;
+      border: none;
+      border-radius: 1.5rem;
+    }
   }
   .results {
   }

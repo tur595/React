@@ -24,12 +24,15 @@ const Nav = ({ playerName, status }) => {
       setBest(Math.min(...data)); //firebaseden direkt query alamadim
     });
   }, [status]);
-
   return (
     <StyledNav variants={fadeIn} initial="hidden" animate="show">
       <h1>Reflex Game</h1>
-      {best ? <h2>{`Best: ${best}ms`}</h2> : ""}
-      {data ? <h2>{`Last: ${data[data.length - 1]}ms`}</h2> : ""}
+      {data ? <h2>{`Best: ${best}ms`}</h2> : <h2>Best: 0ms</h2>}
+      {data ? (
+        <h2>{`Last: ${data[data.length - 1]}ms`}</h2>
+      ) : (
+        <h2>Last: 0ms</h2>
+      )}
     </StyledNav>
   );
 };

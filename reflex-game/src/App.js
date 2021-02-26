@@ -27,11 +27,7 @@ function App() {
   return (
     <StyledApp>
       <GlobalStyles />
-      <Nav
-        status={status}
-        playerName={playerName}
-        setPlayerName={setPlayerName}
-      />
+      <Nav status={status} playerName={playerName} />
       <Home
         playerName={playerName}
         setPlayerName={setPlayerName}

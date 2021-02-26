@@ -14,15 +14,14 @@ const TopScores = () => {
       .orderByChild("delta")
       .limitToFirst(3);
     scoreRef.on("value", (snapshot) => {
-      const scores = snapshot.val();
       const topScores = [];
-      for (let id in scores) {
-        topScores.push(scores[id]);
-      }
+      snapshot.forEach((child) => {
+        topScores.push(child.val());
+      });
       setTopScores(topScores);
     });
   }, []);
-
+  console.log(topScores);
   return (
     <StyledTopScores variants={slide} initial="hidden" animate="show">
       <h1>Top Scores:</h1>
@@ -46,7 +45,13 @@ const StyledTopScores = styled(motion.div)`
   text-align: center;
   justify-content: space-between;
   background: lightblue;
+  color: gray;
   border-radius: 1rem;
+  background: linear-gradient(
+    to left top,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.5)
+  );
   h2 {
     padding-top: 0.4rem;
   }

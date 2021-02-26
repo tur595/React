@@ -22,11 +22,12 @@ const GlobalStyles = createGlobalStyle`
     }
     html{
         body{
-        font-family: "Lato", sans-serif;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(to right top, #3cc2a9, #6cdbeb);
+        height: 1040px;
+        color: #505050
     }
-    background: rgba(48, 144, 255, 0.082);
     }
-
 `;
 
 export default GlobalStyles;

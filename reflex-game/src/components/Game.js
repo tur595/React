@@ -80,15 +80,23 @@ const StyledGame = styled.div`
     text-align: center;
     border-radius: 1rem;
     overflow: hidden;
+    background: linear-gradient(
+      to left top,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.5)
+    );
     opacity: 1;
     transition: 0.5s ease;
     button {
+      transition: 1s ease;
       :hover {
         background: #49d1ff;
+        transition: 1s ease;
       }
       padding: 2rem;
       border: none;
       background: lightblue;
+      color: #4b4b4b;
       cursor: pointer;
       top: 2rem;
       position: relative;

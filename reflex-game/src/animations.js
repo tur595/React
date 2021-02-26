@@ -34,14 +34,14 @@ export const popup = {
 
 export const slide = {
   hidden: {
-    x: 1500,
+    x: 2200,
   },
   show: {
-    x: -1700,
+    x: -1920,
     transition: {
       ease: "linear",
       repeat: Infinity,
-      duration: 30,
+      duration: 35,
     },
   },
 };
