@@ -4,9 +4,18 @@ import Game from "../Game";
 import TopScores from "../TopScores";
 import styled from "styled-components";
 
-const Home = ({ status, setStatus, top, left, start, replay, setReplay }) => {
+const Home = ({
+  status,
+  setStatus,
+  top,
+  left,
+  start,
+  replay,
+  setReplay,
+  playerName,
+  setPlayerName,
+}) => {
   const [userInfo, setUserInfo] = useState(false);
-  const [playerName, setPlayerName] = useState("");
 
   const submitHandler = () => {
     setReplay(true);
@@ -21,6 +30,7 @@ const Home = ({ status, setStatus, top, left, start, replay, setReplay }) => {
     <StyledHome>
       <TopScores />
       <Game
+        playerName={playerName}
         setReplay={setReplay}
         replay={replay}
         status={status}

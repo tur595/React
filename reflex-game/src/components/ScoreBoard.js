@@ -77,7 +77,7 @@ const StyledScoreBoard = styled(motion.div)`
   right: 0;
   width: 20rem;
   height: 100%;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 248, 241);
   box-shadow: 2px 2px 50px rgb(207, 205, 205);
   overflow: scroll;
   h1 {

@@ -13,8 +13,8 @@ const Game = ({
   setReplay,
   playerName,
 }) => {
-  const [delta, setDelta] = useState(null);
-  const [resultState, setResultState] = useState(false);
+  const [delta, setDelta] = useState(null); //player score
+  const [resultState, setResultState] = useState(false); //state for ui interaction
   const playerRef = firebase.database().ref("scores");
 
   const blockClickHandler = () => {

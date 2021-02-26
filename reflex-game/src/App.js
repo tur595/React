@@ -8,6 +8,7 @@ function App() {
   const [status, setStatus] = useState(false);
   const [start, setStart] = useState();
   const [replay, setReplay] = useState(false);
+  const [playerName, setPlayerName] = useState("");
   let top = Math.floor(Math.random() * 500);
   let left = Math.floor(Math.random() * 500);
   let waitTime = null;
@@ -26,8 +27,14 @@ function App() {
   return (
     <StyledApp>
       <GlobalStyles />
-      <Nav />
+      <Nav
+        status={status}
+        playerName={playerName}
+        setPlayerName={setPlayerName}
+      />
       <Home
+        playerName={playerName}
+        setPlayerName={setPlayerName}
         setReplay={setReplay}
         replay={replay}
         status={status}

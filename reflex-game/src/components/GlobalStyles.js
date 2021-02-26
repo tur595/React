@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
         body{
         font-family: "Lato", sans-serif;
     }
-
+    background: rgba(48, 144, 255, 0.082);
     }
 
 `;
