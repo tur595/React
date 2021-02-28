@@ -51,10 +51,10 @@ const ScoreBoard = () => {
       <h1>Scoreboard</h1>
       <div className="search">
         <h4>Search players:</h4>
-        <input type="text" onChange={handleOnChange} />
+        <input data-testid="searchbox" type="text" onChange={handleOnChange} />
       </div>
       <div className="line"></div>
-      <div className="results">
+      <div data-testid="results" className="results">
         {scoreList
           ? //index parameter is to prevent key duplication
             scoreList.map((score, index) => (

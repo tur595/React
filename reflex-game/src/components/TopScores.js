@@ -21,7 +21,6 @@ const TopScores = () => {
       setTopScores(topScores);
     });
   }, []);
-  console.log(topScores);
   return (
     <StyledTopScores variants={slide} initial="hidden" animate="show">
       <h1>Top Scores:</h1>
