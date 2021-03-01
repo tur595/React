@@ -46,8 +46,15 @@ const Home = ({
       />
       <div className={`player-info ${!userInfo}`}>
         <h1>Your Name</h1>
-        <input type="text" onChange={handleOnChange} value={playerName} />
-        <button onClick={submitHandler}>Let's Play</button>
+        <input
+          data-testid="player-name"
+          type="text"
+          onChange={handleOnChange}
+          value={playerName}
+        />
+        <button data-testid="submit" onClick={submitHandler}>
+          Let's Play
+        </button>
       </div>
       <ScoreBoard />
     </StyledHome>

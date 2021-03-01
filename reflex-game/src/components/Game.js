@@ -36,10 +36,14 @@ const Game = ({
 
   return (
     <StyledGame top={top} left={left}>
-      <div onClick={blockClickHandler} className={`block ${status}`}></div>
+      <div
+        data-testid="block"
+        onClick={blockClickHandler}
+        className={`block ${status}`}
+      ></div>
       <div className={`result ${resultState}`}>
         <h1>You have reacted in {delta} miliseconds!</h1>
-        <button onClick={replayHandler}>
+        <button data-testid="result" onClick={replayHandler}>
           <h1>Submit score and play again</h1>
         </button>
       </div>
