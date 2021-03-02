@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Button from "../Button";
 import "../Button/Button.css";
+import status from "../../Assets/status.png";
+import comma from "../utils/comma";
 
 const App = () => {
+  const [time, setTime] = useState(new Date());
   const [value, setValue] = useState("0");
   const [memory, setMemory] = useState(null);
   const [operator, setOperator] = useState(null);
+  let minutes = time.getMinutes();
+  let hours = time.getHours();
+
+  setInterval(() => {
+    setTime(new Date());
+    minutes = time.getMinutes();
+    hours = time.getHours();
+  }, 1000);
 
   const handleButtonPress = (content) => () => {
     const num = parseFloat(value);
@@ -26,6 +37,13 @@ const App = () => {
       setValue((num / 100).toString());
       setMemory(null);
       setOperator(null);
+      return;
+    }
+
+    if (content === ".") {
+      if (value.includes(".")) return;
+
+      setValue(value + ".");
       return;
     }
 
@@ -119,13 +137,25 @@ const App = () => {
       return;
     }
 
-    setValue(parseFloat(num + content).toString());
+    if (value[value.length - 1] === ".") {
+      setValue(value + content);
+    } else {
+      setValue(parseFloat(num + content).toString());
+    }
   };
 
   return (
     <div className="App">
-      <div className="top">4:43</div>
-      <div className="display">{value}</div>
+      <div className="top">
+        <div className="time">
+          {hours.toString().padStart(2, "0")}:
+          {minutes.toString().padStart(2, "0")}
+        </div>
+        <div className="status">
+          <img src={status} alt="status" />
+        </div>
+      </div>
+      <div className="display">{comma(value)}</div>
       <div className="buttons">
         <Button
           onButtonClick={handleButtonPress}
@@ -151,7 +181,7 @@ const App = () => {
         <Button onButtonClick={handleButtonPress} content="." />
         <Button onButtonClick={handleButtonPress} content="=" type="operator" />
       </div>
-      <div className="bottom">-</div>
+      <div className="bottom" />
     </div>
   );
 };

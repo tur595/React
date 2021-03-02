@@ -8,6 +8,12 @@
   justify-content: center;
   font-size: 45px;
   cursor: pointer;
+  transition: filter 0.07s ease-in;
+}
+
+.button:active,
+.button:focus {
+  filter: brightness(170%);
 }
 
 .button.zero {
