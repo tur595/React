@@ -12,6 +12,8 @@ const App = () => {
   const [operator, setOperator] = useState(null);
   let minutes = time.getMinutes();
   let hours = time.getHours();
+  const [fontSize, setFontSize] = useState();
+  const [count, setCount] = useState(130);
 
   setInterval(() => {
     setTime(new Date());
@@ -142,6 +144,18 @@ const App = () => {
     } else {
       setValue(parseFloat(num + content).toString());
     }
+
+    if (value.length > 4) {
+      setCount(count - 15);
+      setFontSize({
+        fontSize: `${count}px`,
+      });
+    } else {
+      setCount(130);
+      setFontSize({
+        fontSize: `${count}px`,
+      });
+    }
   };
 
   return (
@@ -155,7 +169,9 @@ const App = () => {
           <img src={status} alt="status" />
         </div>
       </div>
-      <div className="display">{comma(value)}</div>
+      <div style={fontSize} className="display">
+        {comma(value)}
+      </div>
       <div className="buttons">
         <Button
           onButtonClick={handleButtonPress}
