@@ -14,10 +14,11 @@
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
     "socket.io": "^3.1.2",
+    "socket.io-client": "^3.1.2",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "node src/server/index",
+    "start": "react-scripts start",
     "dev": "nodemon src/server/index",
     "build": "react-scripts build",
     "test": "react-scripts test",
