@@ -11,10 +11,27 @@ socket.on("connect", () => {
 });
 
 function App() {
+  const [tweetData, setTweetData] = useState();
+
+  useEffect(() => {
+    socket.on("tweet", (tweet) => {
+      // const tweets = [];
+      // tweets.push(tweet);
+
+      setTweetData({
+        id: tweet.data.id,
+        text: tweet.data.text,
+        username: `@${tweet.includes.users[0].username}`,
+      });
+    });
+  }, []);
+
+  console.log(tweetData);
+
   return (
     <div className="App">
       <Nav />
-      <Tweet />
+      <Tweet tweetData={tweetData} />
     </div>
   );
 }
