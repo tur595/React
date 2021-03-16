@@ -4,8 +4,30 @@ import axios from "axios";
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const handleSubmit = () => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const authObject = {
+      "Project-ID": "d6ccb23d-0d3d-4be9-b4f9-3acbcff0f477",
+      "User-Name": username,
+      "User-Secret": password,
+    };
+
+    try {
+      await axios.get("https://api.chatengine.io/chats", {
+        headers: authObject,
+      });
+
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+
+      window.location.reload();
+    } catch (error) {
+      setError("Incorrect credentials");
+    }
+  };
 
   return (
     <div className="wrapper">
@@ -21,10 +43,10 @@ const LoginForm = () => {
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
-            className="password"
+            className="input"
             placeholder="Password"
             required
-            type="text"
+            type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -33,8 +55,11 @@ const LoginForm = () => {
               <span>Start Chatting</span>
             </button>
           </div>
+          <h2 className="error">{error}</h2>
         </form>
       </div>
     </div>
   );
 };
+
+export default LoginForm;
