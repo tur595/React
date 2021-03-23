@@ -20,6 +20,7 @@ window.env = {
   "SHLVL": "1",
   "npm_config_prefer_online": "",
   "npm_config_noproxy": "",
+  "MOTD_SHOWN": "update-motd",
   "HOME": "/home/tur595",
   "OLDPWD": "/mnt/c/Users/tur59/Documents/Programming/React",
   "npm_package_browserslist_production_0": ">0.2%",
