@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import SidebarOption from "./SidebarOption";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
 
 //Icons
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
@@ -17,9 +17,11 @@ import FileCopyIcon from "@material-ui/icons/FileCopy";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AddIcon from "@material-ui/icons/Add";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function Sidebar() {
   const [channels, loading, error] = useCollection(db.collection("rooms"));
+  const [user] = useAuthState(auth);
 
   return (
     <SidebarContainer>
@@ -28,7 +30,7 @@ function Sidebar() {
           <h2>Annual Reports</h2>
           <h3>
             <FiberManualRecordIcon />
-            John Doe
+            {user?.displayName}
           </h3>
         </SidebarInfo>
         <CreateIcon />

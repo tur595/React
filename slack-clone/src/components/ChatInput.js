@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Button } from "@material-ui/core";
 import firebase from "firebase";
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function ChatInput({ channelName, channelId }) {
   const [input, setInput] = useState("");
+  const [user] = useAuthState(auth);
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -17,8 +19,8 @@ function ChatInput({ channelName, channelId }) {
     db.collection("rooms").doc(channelId).collection("messages").add({
       message: input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      user: "John Doe",
-      userImage: "http://www.apimages.com/Images/Ap_Creative_Stock_Header.jpg",
+      user: user.displayName,
+      userImage: user.photoURL,
     });
 
     setInput("");
