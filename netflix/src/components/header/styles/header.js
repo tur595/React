@@ -6,6 +6,7 @@ export const Background = styled.div`
   flex-direction: column;
   background: url(${({ src }) => src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg'}) top left / cover no-repeat;
 `;
+/* prettier-ignore */
 
 export const Container = styled.div`
   display: flex;
