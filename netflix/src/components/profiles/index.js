@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Container,
-  Title,
-  List,
-  User,
-  Picture,
-  Name,
-  Item,
-} from "./styles/profiles";
+import { Container, Title, List, Picture, Name, Item } from "./styles/profiles";
 
 export default function Profiles({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
