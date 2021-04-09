@@ -2,21 +2,21 @@
 
 exports[`<Accordion /> opens and closes the <Accordion /> component 1`] = `
 <div
-  class="accordion__Container-l3iym9-0 inwkwi"
+  class="accordion__Container-l3iym9-0 jhRdpM"
 >
   <div
-    class="accordion__Inner-l3iym9-1 daPdxt"
+    class="accordion__Inner-l3iym9-1 buOkWn"
   >
     <h1
-      class="accordion__Title-l3iym9-5 bsREHj"
+      class="accordion__Title-l3iym9-5 kmlDpd"
     >
       Frequently Asked Questions
     </h1>
     <div
-      class="accordion__Item-l3iym9-2 kiwqrD"
+      class="accordion__Item-l3iym9-2 bxsMvV"
     >
       <div
-        class="accordion__Header-l3iym9-4 lhArWP"
+        class="accordion__Header-l3iym9-4 fvLpIJ"
       >
         What is Netflix?
         <img
@@ -26,10 +26,10 @@ exports[`<Accordion /> opens and closes the <Accordion /> component 1`] = `
       </div>
     </div>
     <div
-      class="accordion__Item-l3iym9-2 kiwqrD"
+      class="accordion__Item-l3iym9-2 bxsMvV"
     >
       <div
-        class="accordion__Header-l3iym9-4 lhArWP"
+        class="accordion__Header-l3iym9-4 fvLpIJ"
       >
         How much does Netflix cost?
         <img
@@ -39,10 +39,10 @@ exports[`<Accordion /> opens and closes the <Accordion /> component 1`] = `
       </div>
     </div>
     <div
-      class="accordion__Item-l3iym9-2 kiwqrD"
+      class="accordion__Item-l3iym9-2 bxsMvV"
     >
       <div
-        class="accordion__Header-l3iym9-4 lhArWP"
+        class="accordion__Header-l3iym9-4 fvLpIJ"
       >
         Where can I watch?
         <img
@@ -52,10 +52,10 @@ exports[`<Accordion /> opens and closes the <Accordion /> component 1`] = `
       </div>
     </div>
     <div
-      class="accordion__Item-l3iym9-2 kiwqrD"
+      class="accordion__Item-l3iym9-2 bxsMvV"
     >
       <div
-        class="accordion__Header-l3iym9-4 lhArWP"
+        class="accordion__Header-l3iym9-4 fvLpIJ"
       >
         How do I cancel?
         <img
@@ -65,10 +65,10 @@ exports[`<Accordion /> opens and closes the <Accordion /> component 1`] = `
       </div>
     </div>
     <div
-      class="accordion__Item-l3iym9-2 kiwqrD"
+      class="accordion__Item-l3iym9-2 bxsMvV"
     >
       <div
-        class="accordion__Header-l3iym9-4 lhArWP"
+        class="accordion__Header-l3iym9-4 fvLpIJ"
       >
         What can I watch on Netflix?
         <img
@@ -83,21 +83,21 @@ exports[`<Accordion /> opens and closes the <Accordion /> component 1`] = `
 
 exports[`<Accordion /> renders the <Accordion /. with populated data 1`] = `
 <div
-  class="accordion__Container-l3iym9-0 inwkwi"
+  class="accordion__Container-l3iym9-0 jhRdpM"
 >
   <div
-    class="accordion__Inner-l3iym9-1 daPdxt"
+    class="accordion__Inner-l3iym9-1 buOkWn"
   >
     <h1
-      class="accordion__Title-l3iym9-5 bsREHj"
+      class="accordion__Title-l3iym9-5 kmlDpd"
     >
       Frequently Asked Questions
     </h1>
     <div
-      class="accordion__Item-l3iym9-2 kiwqrD"
+      class="accordion__Item-l3iym9-2 bxsMvV"
     >
       <div
-        class="accordion__Header-l3iym9-4 lhArWP"
+        class="accordion__Header-l3iym9-4 fvLpIJ"
       >
         What is Netflix?
         <img
@@ -107,10 +107,10 @@ exports[`<Accordion /> renders the <Accordion /. with populated data 1`] = `
       </div>
     </div>
     <div
-      class="accordion__Item-l3iym9-2 kiwqrD"
+      class="accordion__Item-l3iym9-2 bxsMvV"
     >
       <div
-        class="accordion__Header-l3iym9-4 lhArWP"
+        class="accordion__Header-l3iym9-4 fvLpIJ"
       >
         How much does Netflix cost?
         <img
@@ -120,10 +120,10 @@ exports[`<Accordion /> renders the <Accordion /. with populated data 1`] = `
       </div>
     </div>
     <div
-      class="accordion__Item-l3iym9-2 kiwqrD"
+      class="accordion__Item-l3iym9-2 bxsMvV"
     >
       <div
-        class="accordion__Header-l3iym9-4 lhArWP"
+        class="accordion__Header-l3iym9-4 fvLpIJ"
       >
         Where can I watch?
         <img
@@ -133,10 +133,10 @@ exports[`<Accordion /> renders the <Accordion /. with populated data 1`] = `
       </div>
     </div>
     <div
-      class="accordion__Item-l3iym9-2 kiwqrD"
+      class="accordion__Item-l3iym9-2 bxsMvV"
     >
       <div
-        class="accordion__Header-l3iym9-4 lhArWP"
+        class="accordion__Header-l3iym9-4 fvLpIJ"
       >
         How do I cancel?
         <img
@@ -146,10 +146,10 @@ exports[`<Accordion /> renders the <Accordion /. with populated data 1`] = `
       </div>
     </div>
     <div
-      class="accordion__Item-l3iym9-2 kiwqrD"
+      class="accordion__Item-l3iym9-2 bxsMvV"
     >
       <div
-        class="accordion__Header-l3iym9-4 lhArWP"
+        class="accordion__Header-l3iym9-4 fvLpIJ"
       >
         What can I watch on Netflix?
         <img
