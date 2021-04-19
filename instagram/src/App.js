@@ -6,8 +6,8 @@ import useAuthListener from "./hooks/use-auth-listener";
 
 const Login = lazy(() => import("./pages/login"));
 const Signup = lazy(() => import("./pages/signup"));
-const NotFound = lazy(() => import("./pages/not-found"));
 const Dashboard = lazy(() => import("./pages/dashboard"));
+const NotFound = lazy(() => import("./pages/not-found"));
 
 export default function App() {
   const { user } = useAuthListener();
