@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 //styling and animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -25,6 +25,7 @@ const GameDetail = ({ pathID }) => {
     if (element.classList.contains("shadow")) {
       document.body.style.overflow = "auto";
       history.push("/");
+      document.title = "Browse games - Ignite Games";
     }
   };
   //get stars
@@ -38,6 +39,7 @@ const GameDetail = ({ pathID }) => {
         stars.push(<img alt="star" key={i} src={starEmpty}></img>);
       }
     }
+    document.title = `${game.name} - Ignite Games`;
     return stars;
   };
 
@@ -60,6 +62,9 @@ const GameDetail = ({ pathID }) => {
 
   //data
   const { screen, game, isLoading } = useSelector((state) => state.detail);
+
+  console.log(game);
+
   return (
     <>
       {!isLoading && (
@@ -74,7 +79,7 @@ const GameDetail = ({ pathID }) => {
               <Info>
                 <h3>Platforms</h3>
                 <Platforms>
-                  {game.platforms.map((data) => (
+                  {game.platforms?.map((data) => (
                     <img
                       key={data.platform.id}
                       src={getPlatform(data.platform.name)}

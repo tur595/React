@@ -20,10 +20,12 @@ const Nav = () => {
     e.preventDefault();
     dispatch(fetchSearch(textInput));
     setTextInput("");
+    document.title = `Search: ${textInput} - Ignite Games`;
   };
 
   const clearSearched = () => {
     dispatch({ type: "CLEAR_SEARCHED" });
+    document.title = "Home - Ignite Games";
   };
 
   return (

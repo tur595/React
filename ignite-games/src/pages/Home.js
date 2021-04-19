@@ -18,9 +18,12 @@ const Home = () => {
 
   //fetch games
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(loadGames());
+    document.title = "Ignite Games";
   }, [dispatch]);
+
   //get that data back
   const { popular, newGames, upcoming, searched } = useSelector(
     (state) => state.games
@@ -99,7 +102,7 @@ const GameList = styled(motion.div)`
 const Games = styled(motion.div)`
   min-height: 80vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
 `;
