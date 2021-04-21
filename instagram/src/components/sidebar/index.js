@@ -3,7 +3,7 @@ import useUser from "../../hooks/use-user";
 import User from "./user";
 import Suggestions from "./suggestions";
 
-function Sidebar() {
+export default function Sidebar() {
   const {
     user: { fullName, username, userId },
   } = useUser();
@@ -15,5 +15,3 @@ function Sidebar() {
     </div>
   );
 }
-
-export default Sidebar;
