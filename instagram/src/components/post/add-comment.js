@@ -9,7 +9,7 @@ export default function AddComment({
   setComments,
   commentInput,
 }) {
-  const [comment, setcomment] = useState("");
+  const [comment, setComment] = useState("");
   const { firebase, FieldValue } = useContext(FirebaseContext);
   const {
     user: { displayName },
@@ -18,10 +18,53 @@ export default function AddComment({
   const handleSubmitComment = (event) => {
     event.preventDefault();
 
-    return null;
+    setComments([{ displayName, comment }, ...comments]);
+    setComment("");
+
+    return firebase
+      .firestore()
+      .collection("photos")
+      .doc(docId)
+      .update({
+        comments: FieldValue.arrayUnion({ displayName, comment }),
+      });
   };
 
-  return null;
+  return (
+    <div className="border-t border-gray-primary">
+      <form
+        className="flex justify-between pl-0 pr-5"
+        method="post"
+        onSubmit={(event) =>
+          comment.length >= 1
+            ? handleSubmitComment(event)
+            : event.preventDefault()
+        }
+      >
+        <input
+          type="text"
+          aria-label="Add a comment"
+          autoComplete="off"
+          className="text-sm text-gray-base w-full mr-3 py-5 px-4"
+          name="add-comment"
+          placeholder="Add a comment..."
+          value={comment}
+          onChange={({ target }) => setComment(target.value)}
+          ref={commentInput}
+        />
+        <button
+          className={`text-sm font-bold text-blue-medium ${
+            !comment && "opacity-25"
+          }`}
+          type="button"
+          disabled={comment.length < 1}
+          onClick={handleSubmitComment}
+        >
+          Post
+        </button>
+      </form>
+    </div>
+  );
 }
 
 AddComment.propTypes = {
