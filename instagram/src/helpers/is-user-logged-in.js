@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Route, Redirect } from "react-router-dom";
-import * as ROUTES from "../constants/routes";
 
 export default function IsUserLoggedIn({
   user,
@@ -17,7 +16,7 @@ export default function IsUserLoggedIn({
           return children;
         }
 
-        if (!user) {
+        if (user) {
           return (
             <Redirect
               to={{
@@ -37,5 +36,5 @@ export default function IsUserLoggedIn({
 IsUserLoggedIn.propTypes = {
   user: PropTypes.object,
   loggedInPath: PropTypes.string.isRequired,
-  children: PropTypes.object.isRequired,
+  //children: PropTypes.object.isRequired,
 };
