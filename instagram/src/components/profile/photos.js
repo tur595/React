@@ -5,7 +5,7 @@ import Skeleton from "react-loading-skeleton";
 export default function Photos({ photos }) {
   return (
     <div>
-      <h1>Photos</h1>
+      <h1>{""}</h1>
     </div>
   );
 }
