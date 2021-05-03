@@ -30,15 +30,19 @@ export default function Signup() {
           displayName: username,
         });
 
-        await firebase.firestore().collection("users").add({
-          userId: createdUserResult.user.uid,
-          username: username.toLowerCase(),
-          fullName,
-          emailAddress: emailAddress.toLowerCase(),
-          following: [],
-          followers: [],
-          dateCreated: Date.now(),
-        });
+        await firebase
+          .firestore()
+          .collection("users")
+          .add({
+            userId: createdUserResult.user.uid,
+            username: username.toLowerCase(),
+            fullName,
+            emailAddress: emailAddress.toLowerCase(),
+            following: ["2"],
+            followers: [],
+            dateCreated: Date.now(),
+            profilePic: "default",
+          });
 
         history.push(ROUTES.DASHBOARD);
       } catch (error) {

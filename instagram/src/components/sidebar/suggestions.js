@@ -4,7 +4,12 @@ import Skeleton from "react-loading-skeleton";
 import { getSuggestedProfiles } from "../../services/firebase";
 import SuggestedProfiles from "./suggestedProfiles";
 
-export default function Suggestions({ userId, following, loggedInUserDocId }) {
+export default function Suggestions({
+  userId,
+  following,
+  loggedInUserDocId,
+  profilePic,
+}) {
   const [profiles, setProfiles] = useState(null);
 
   useEffect(() => {
@@ -15,7 +20,7 @@ export default function Suggestions({ userId, following, loggedInUserDocId }) {
     if (userId) {
       suggestedProfiles();
     }
-  }, [userId]);
+  }, [userId, following]);
 
   return !profiles ? (
     <Skeleton count={1} height={150} className="mt-5" />
@@ -25,7 +30,7 @@ export default function Suggestions({ userId, following, loggedInUserDocId }) {
         <p className="font-bold text-gray-base">Suggestions for you</p>
       </div>
       <div className="mt-4 grid gap-5">
-        {profiles.map((profile) => (
+        {profiles.slice(0, 5).map((profile) => (
           <SuggestedProfiles
             key={profile.docId}
             profileDocId={profile.docId}
@@ -33,6 +38,7 @@ export default function Suggestions({ userId, following, loggedInUserDocId }) {
             profileId={profile.userId}
             userId={userId}
             loggedInUserDocId={loggedInUserDocId}
+            profilePic={profile.profilePic}
           />
         ))}
       </div>

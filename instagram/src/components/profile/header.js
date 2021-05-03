@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import Skeleton from "react-loading-skeleton";
 import useUser from "../../hooks/use-user";
 import { isUserFollowingProfile, toggleFollow } from "../../services/firebase";
+import UserContext from "../../context/user";
 
 export default function Header({
   photosCount,
@@ -11,16 +12,19 @@ export default function Header({
     docId: profileDocId,
     userId: profileUserId,
     fullName,
-    following = [],
-    followers = [],
+    following,
+    followers,
     username: profileUsername,
+    profilePic,
   },
   followerCount,
   setFollowerCount,
 }) {
-  const { user } = useUser();
+  const { user: loggedInUser } = useContext(UserContext);
+  const { user } = useUser(loggedInUser?.uid);
   const [isFollowingProfile, setIsFollowingProfile] = useState(false);
-  const activeBtnFollow = user.username && user.username !== profileUsername;
+  const activeBtnFollow =
+    user && user.username && user.username !== profileUsername;
 
   const handleToggleFollow = async () => {
     setIsFollowingProfile((isFollowingProfile) => !isFollowingProfile);
@@ -44,14 +48,14 @@ export default function Header({
       );
       setIsFollowingProfile(!!isFollowing);
     };
-    if (user.username && profileUserId) {
+    if (user?.username && profileUserId) {
       isLoggedInUserFollowingProfile();
     }
-  }, [user.username, profileUserId]);
+  }, [user?.username, profileUserId]);
 
   return (
     <div className="grid grid-cols-3 gap-4 justify-between mx-auto max-w-screen-lg">
-      <div className="container flex justify-center">
+      <div className="container flex justify-center items-center">
         {!profileUsername ? (
           <>
             <Skeleton circle={true} count={1} width={175} height={175} />
@@ -59,8 +63,8 @@ export default function Header({
         ) : (
           <img
             className="rounded-full h-40 w-40 flex"
-            src={`/images/avatars/${profileUsername}.jpg`}
-            alt={`${user.username} profile picture`}
+            src={`/images/avatars/${profilePic}.jpg`}
+            alt={`${user.username} profile`}
           />
         )}
       </div>

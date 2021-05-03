@@ -27,7 +27,7 @@ export default function Profile({ user }) {
       });
     }
     getProfileInfoAndPhotos();
-  }, [user.username]);
+  }, [user.username, user]);
 
   return (
     <>
@@ -37,7 +37,7 @@ export default function Profile({ user }) {
         followerCount={followerCount}
         setFollowerCount={dispatch}
       />
-      <Photos photos={photosCollection} />
+      <Photos profile={profile} photos={photosCollection} />
     </>
   );
 }
