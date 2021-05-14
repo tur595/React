@@ -8,12 +8,12 @@ export const useTasks = (selectedProject) => {
   const [archivedTasks, setArchivedTasks] = useState([]);
 
   useEffect(() => {
-    let unsubcsribe = firebase
+    let unsubscribe = firebase
       .firestore()
       .collection("tasks")
       .where("userId", "==", "asd123");
 
-    unsubcsribe =
+    unsubscribe =
       selectedProject && !collatedTasksExists(selectedProject)
         ? (unsubscribe = unsubscribe.where("projectId", "==", selectedProject))
         : selectedProject === "TODAY"
@@ -23,10 +23,10 @@ export const useTasks = (selectedProject) => {
             moment().format("DD/MM/YYYY")
           ))
         : selectedProject === "INBOX" || selectedProject === 0
-        ? (unsubcsribe = unsubcsribe.where("date", "==", ""))
-        : unsubcsribe;
+        ? (unsubscribe = unsubscribe.where("date", "==", ""))
+        : unsubscribe;
 
-    unsubcsribe = unsubcsribe.onSnapshot((snapshot) => {
+    unsubscribe = unsubscribe.onSnapshot((snapshot) => {
       const newTasks = snapshot.docs.map((task) => ({
         id: task.id,
         ...task.data(),
