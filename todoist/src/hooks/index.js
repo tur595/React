@@ -52,7 +52,7 @@ export const useTasks = (selectedProject) => {
 };
 
 export const useProjects = () => {
-  const [projects, setProjets] = useState([]);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     firebase
@@ -68,10 +68,10 @@ export const useProjects = () => {
         }));
 
         if (JSON.stringify(allProjects) !== JSON.stringify(projects)) {
-          setProjets(allProjects);
+          setProjects(allProjects);
         }
       });
   }, [projects]);
 
-  return { projects, setProjets };
+  return { projects, setProjects };
 };

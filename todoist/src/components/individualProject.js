@@ -43,7 +43,7 @@ export const IndividualProject = ({ project }) => {
               <p>Are you sure you want to delete this project?</p>
               <button
                 type="button"
-                onClick={() => deleteProject(project.docId)}
+                onClick={() => deleteProject(project.docID)}
               >
                 Delete
               </button>
