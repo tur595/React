@@ -4,6 +4,7 @@ import { useTasks } from "../hooks";
 import { useProjectsValue, useSelectedProjectValue } from "../context";
 import { collatedTasksExists, getTitle, getCollatedTitle } from "../helpers";
 import { collatedTasks } from "../constants";
+import { AddTask } from "./AddTask";
 
 export const Tasks = () => {
   const { selectedProject } = useSelectedProjectValue();
@@ -35,6 +36,7 @@ export const Tasks = () => {
           </li>
         ))}
       </ul>
+      <AddTask />
     </div>
   );
 };
