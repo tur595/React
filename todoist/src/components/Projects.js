@@ -23,8 +23,25 @@ export const Projects = ({ activeValue = true }) => {
           setActive(project.projectId);
           setSelectedProject(project.projectId);
         }}
+        onClick={() => {
+          setActive(project.projectId);
+          setSelectedProject(project.projectId);
+        }}
       >
-        <IndividualProject project={project} />
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={() => {
+            setActive(project.projectId);
+            setSelectedProject(project.projectId);
+          }}
+          onKeyDown={() => {
+            setActive(project.projectId);
+            setSelectedProject(project.projectId);
+          }}
+        >
+          <IndividualProject project={project} />
+        </div>
       </li>
     ))
   );
