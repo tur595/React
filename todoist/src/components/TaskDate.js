@@ -7,7 +7,13 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) => {
       <div className="task-date" data-testid="task-date-overlay">
         <ul className="task-date__list">
           <li
+            role="button"
+            tabIndex={0}
             onClick={() => {
+              setShowTaskDate(false);
+              setTaskDate(moment().format("DD/MM/YYYY"));
+            }}
+            onKeyDown={() => {
               setShowTaskDate(false);
               setTaskDate(moment().format("DD/MM/YYYY"));
             }}
@@ -19,7 +25,13 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) => {
             <span>Today</span>
           </li>
           <li
+            role="button"
+            tabIndex={0}
             onClick={() => {
+              setShowTaskDate(false);
+              setTaskDate(moment().add(1, "day").format("DD/MM/YYYY"));
+            }}
+            onKeyDown={() => {
               setShowTaskDate(false);
               setTaskDate(moment().add(1, "day").format("DD/MM/YYYY"));
             }}
@@ -31,7 +43,13 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) => {
             <span>Tomorrow</span>
           </li>
           <li
+            role="button"
+            tabIndex={0}
             onClick={() => {
+              setShowTaskDate(false);
+              setTaskDate(moment().add(7, "day").format("DD/MM/YYYY"));
+            }}
+            onKeyDown={() => {
               setShowTaskDate(false);
               setTaskDate(moment().add(7, "day").format("DD/MM/YYYY"));
             }}

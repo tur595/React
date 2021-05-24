@@ -219,19 +219,18 @@ header {
   }
 
   li {
-    padding-left: 10px;
-    padding-right: 15px;
-
     &:hover .sidebar__project-delete {
       display: flex;
     }
   }
 
   &__project {
-    padding: 5px 0;
     cursor: pointer;
 
     div:nth-child(1) {
+      padding: 5px 0;
+      padding-left: 10px;
+      padding-right: 15px;
       width: 100%;
       display: flex;
       align-items: center;

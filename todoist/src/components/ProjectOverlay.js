@@ -16,7 +16,13 @@ export const ProjectOverlay = ({
             <li
               key={project.projectId}
               data-testid="project-overlay-action"
+              role="button"
+              tabIndex={0}
               onClick={() => {
+                setProject(project.projectId);
+                setShowProjectOverlay(false);
+              }}
+              onKeyDown={() => {
                 setProject(project.projectId);
                 setShowProjectOverlay(false);
               }}

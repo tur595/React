@@ -18,12 +18,18 @@ export const Sidebar = () => {
     <div className="sidebar" data-testid="sidebar">
       <ul className="sidebar__generic">
         <li
+          data-testid="inbox"
+          className={active === "inbox" ? "active" : undefined}
+          role="button"
+          tabIndex={0}
           onClick={() => {
             setActive("inbox");
             setSelectedProject("INBOX");
           }}
-          data-testid="inbox"
-          className={active === "inbox" ? "active" : undefined}
+          onKeyDown={() => {
+            setActive("inbox");
+            setSelectedProject("INBOX");
+          }}
         >
           <span>
             <FaInbox />
@@ -31,12 +37,18 @@ export const Sidebar = () => {
           <span>Inbox</span>
         </li>
         <li
+          role="button"
+          tabIndex={0}
+          data-testid="today"
+          className={active === "today" ? "active" : undefined}
           onClick={() => {
             setActive("today");
             setSelectedProject("TODAY");
           }}
-          data-testid="today"
-          className={active === "today" ? "active" : undefined}
+          onKeyDown={() => {
+            setActive("today");
+            setSelectedProject("TODAY");
+          }}
         >
           <span>
             <FaRegCalendar />
@@ -44,12 +56,18 @@ export const Sidebar = () => {
           <span>Today</span>
         </li>
         <li
+          data-testid="next_7"
+          className={active === "next_7" ? "active" : undefined}
+          role="button"
+          tabIndex={0}
           onClick={() => {
             setActive("next_7");
             setSelectedProject("NEXT_7");
           }}
-          data-testid="next_7"
-          className={active === "next_7" ? "active" : undefined}
+          onKeyDown={() => {
+            setActive("next_7");
+            setSelectedProject("NEXT_7");
+          }}
         >
           <span>
             <FaRegCalendarAlt />
