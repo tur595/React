@@ -16,6 +16,7 @@ export const ProjectOverlay = ({
             <li
               key={project.projectId}
               data-testid="project-overlay-action"
+              aria-label={`Select project: ${project.name}`}
               role="button"
               tabIndex={0}
               onClick={() => {

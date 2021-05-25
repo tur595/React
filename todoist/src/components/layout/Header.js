@@ -15,6 +15,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
         <div className="settings">
           <ul>
             <li
+              aria-label="Quick Add Task"
               data-testid="quick-add-task-action"
               className="settings__add"
               tabIndex={0}
@@ -31,6 +32,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
               +
             </li>
             <li
+              aria-label="Darkmode"
               data-testid="dark-mode-action"
               className="settings__darkmode"
               tabIndex={0}

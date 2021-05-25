@@ -1,6 +1,6 @@
 import { firebase } from "../firebase";
 
-export const Checkbox = ({ id }) => {
+export const Checkbox = ({ id, taskDesc }) => {
   const archiveTask = () => {
     firebase.firestore().collection("tasks").doc(id).update({
       archived: true,
@@ -10,6 +10,7 @@ export const Checkbox = ({ id }) => {
   return (
     <div
       className="checkbox-holder"
+      aria-label={`Mark ${taskDesc} as done?`}
       data-testid="checkbox-action"
       role="button"
       tabIndex={0}

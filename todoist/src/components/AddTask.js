@@ -60,6 +60,7 @@ export const AddTask = ({
       {showAddTaskMain && (
         <div
           className="add-task__shallow"
+          aria-label="Add Task"
           data-testid="show-main-action"
           role="button"
           tabIndex={0}
@@ -79,6 +80,7 @@ export const AddTask = ({
                 <h2 className="header">Quick Add Task</h2>
                 <span
                   className="add-task__cancel-x"
+                  aria-label="Cancel adding task"
                   data-testid="add-task-quick-cancel"
                   role="button"
                   tabIndex={0}
@@ -109,8 +111,9 @@ export const AddTask = ({
             setShowTaskDate={setShowTaskDate}
           />
           <input
-            type="text"
             className="add-task__content"
+            aria-label="Enter your task"
+            type="text"
             data-testid="add-task-content"
             value={task}
             onChange={(e) => setTask(e.target.value)}
@@ -131,6 +134,7 @@ export const AddTask = ({
           {!showQuickAddTask && (
             <span
               className="add-task__cancel"
+              aria-label="Cancel adding a task"
               data-testid="add-task-main-cancel"
               role="button"
               tabIndex={0}
