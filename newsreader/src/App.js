@@ -5,12 +5,12 @@ export const App = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
-    setStoryIds("hello");
+    getStoryIds().then((data) => setStoryIds(data));
   }, []);
 
   return (
     <div className="App">
-      <p>{storyIds}</p>
+      <p>{JSON.stringify(storyIds)}</p>
     </div>
   );
 };
