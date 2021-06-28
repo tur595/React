@@ -7,8 +7,8 @@ export const Pokemon = ({ pokemon }) => {
         <p>{pokemon.name}</p>
       </div>
       <div className="pokemon__meta">
-        <p>{pokemon.maxHP}</p>
-        <p>{pokemon.maxCP}</p>
+        <span>{pokemon.maxHP}</span>
+        <span>{pokemon.maxCP}</span>
       </div>
       <div className="pokemon__image">
         <img src={pokemon.image} alt={pokemon.name} />
