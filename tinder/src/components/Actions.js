@@ -22,3 +22,5 @@ const Actions = ({ person, modifySuperficialChoices }) => {
     />
   </div>;
 };
+
+export default Actions;

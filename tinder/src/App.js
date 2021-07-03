@@ -6,13 +6,13 @@ import data from "./data.json";
 import { useState } from "react";
 
 function App() {
-  const [person, setPerson] = useState(data);
+  const [people, setPeople] = useState(data);
   const [likedUsers, setLikedUsers] = useState([]);
   const [superLikedUsers, setSuperLikedUsers] = useState([]);
   const [dislikedUsers, setDislikedUsers] = useState([]);
   const activeUser = 0;
 
-  const removedPersonFromDataSrc = (people, userId) =>
+  const removePersonFromDataSrc = (people, userId) =>
     people.filter((person) => person.id !== userId);
 
   const modifySuperficialChoices = (userId, action) => {
@@ -20,35 +20,37 @@ function App() {
     const newLikedUsers = [...likedUsers];
     const newSuperLikedUsers = [...superLikedUsers];
     const newDislikeUsers = [...dislikedUsers];
+
+    switch (action) {
+      case "ADD_TO_LIKED_USER":
+        if (!people[activeUser].likedUsers.includes(userId)) {
+          newPeople[activeUser].likedUsers.push(userId);
+          newDislikeUsers.push(data[userId]);
+
+          setLikedUsers(newLikedUsers);
+          setPeople(removePersonFromDataSrc(people, userId));
+        }
+        break;
+      case "ADD_TO_DISLIKED_USER":
+        if (!people[activeUser].dislikedUsers.includes(userId)) {
+          newPeople[activeUser].dislikedUsers.push(userId);
+
+          setDislikedUsers(newLikedUsers);
+          setPeople(removePersonFromDataSrc(people, userId));
+        }
+        break;
+      case "ADD_TO_SUPERLIKED_USER":
+        if (!people[activeUser].superLikedUsers.includes(userId)) {
+          newPeople[activeUser].superLikedUsers.push(userId);
+          newSuperLikedUsers.push(data[userId]);
+
+          setSuperLikedUsers(newLikedUsers);
+          setPeople(removePersonFromDataSrc(people, userId));
+        }
+      default:
+        return people;
+    }
   };
-
-  switch (action) {
-    case "ADD_TO_LIKED_USER":
-      if (!person[activeUser].likedUsers.includes(userId)) {
-        newPeople[activeUser].likedUsers.push(userId);
-
-        setLikedUsers(newLikedUsers);
-        setPeople(removePersonFromDataSrc(people, userId));
-      }
-      break;
-    case "ADD_TO_DISLIKED_USER":
-      if (!people[activeUser].dislikedUsers.includes(userId)) {
-        newPeople[activeUser].dislikedUsers.push(userId);
-
-        setDislikedUsers(newLikedUsers);
-        setPeople(removePersonFromDataSrc(people, userId));
-      }
-      break;
-    case "ADD_TO_SUPERLIKED_USER":
-      if (!people[activeUser].superLikedUsers.includes(userId)) {
-        newPeople[activeUser].superLikedUsers.push(userId);
-
-        setDislikedUsers(newLikedUsers);
-        setPeople(removePersonFromDataSrc(people, userId));
-      }
-    default:
-      return people;
-  }
 
   return (
     <div className="App">
@@ -56,7 +58,7 @@ function App() {
       <p>Tinder</p>
       {people[1] ? (
         <Person
-          key={person[1].id}
+          key={people[1].id}
           person={people[1]}
           modifySuperficialChoices={modifySuperficialChoices}
           likedUsers={likedUsers}
