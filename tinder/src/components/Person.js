@@ -1,7 +1,7 @@
 import React from "react";
 import Actions from "./Actions";
 
-const Person = ({ person, modifySuperficialChoices }) => {
+export const Person = ({ person, modifySuperficialChoices }) => {
   const { name, desc, age, image } = person;
 
   return (
@@ -26,5 +26,3 @@ const Person = ({ person, modifySuperficialChoices }) => {
     </div>
   );
 };
-
-export default Person;

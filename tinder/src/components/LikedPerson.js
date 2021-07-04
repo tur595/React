@@ -1,6 +1,6 @@
 import React from "react";
 
-export const LikedPerson = () => {
+export const LikedPerson = ({ person }) => {
   return (
     <div className="liked-person">
       <img
