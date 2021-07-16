@@ -70,7 +70,6 @@ function App() {
           superLikedUsers={superLikedUsers}
         />
       )}
-      )
     </div>
   );
 }
