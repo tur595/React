@@ -19,32 +19,33 @@ function App() {
     const newPeople = [...people];
     const newLikedUsers = [...likedUsers];
     const newSuperLikedUsers = [...superLikedUsers];
-    const newDislikeUsers = [...dislikedUsers];
+    const newDislikedUsers = [...dislikedUsers];
 
     switch (action) {
-      case "ADD_TO_LIKED_USER":
+      case "ADD_TO_LIKED_USERS":
         if (!people[activeUser].likedUsers.includes(userId)) {
           newPeople[activeUser].likedUsers.push(userId);
-          newDislikeUsers.push(data[userId]);
+          newLikedUsers.push(data[userId]);
 
           setLikedUsers(newLikedUsers);
           setPeople(removePersonFromDataSrc(people, userId));
         }
         break;
-      case "ADD_TO_DISLIKED_USER":
+      case "ADD_TO_DISLIKED_USERS":
         if (!people[activeUser].dislikedUsers.includes(userId)) {
           newPeople[activeUser].dislikedUsers.push(userId);
+          newDislikedUsers.push(data[userId]);
 
           setDislikedUsers(newLikedUsers);
           setPeople(removePersonFromDataSrc(people, userId));
         }
         break;
-      case "ADD_TO_SUPERLIKED_USER":
+      case "ADD_TO_SUPERLIKED_USERS":
         if (!people[activeUser].superLikedUsers.includes(userId)) {
           newPeople[activeUser].superLikedUsers.push(userId);
           newSuperLikedUsers.push(data[userId]);
 
-          setSuperLikedUsers(newLikedUsers);
+          setSuperLikedUsers(newSuperLikedUsers);
           setPeople(removePersonFromDataSrc(people, userId));
         }
       default:

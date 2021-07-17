@@ -132,6 +132,35 @@ header .fl:last-child {
   padding: 15px;
 }
 
+#lonely {
+  padding: 10px;
+  border-radius: 1px;
+  background-color: white;
+  border-top: 1px solid #eee;
+}
+
+#liked-people {
+  margin: auto;
+  overflow: hidden;
+}
+
+#liked-people .liked-person {
+  display: inline-block;
+  width: 33%;
+  margin-top: 10px;
+}
+
+#liked-people .liked-person-image {
+  border-radius: 5px;
+}
+
+#liked-people .liked-person-image img {
+  width: 140px;
+  height: 100px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
 .pulse {
   margin: auto;
   width: 200px;
