@@ -16,7 +16,7 @@ import DuoIcon from "@material-ui/icons/Duo";
 
 const Sidebar = () => {
   return (
-    <div>
+    <div className="sidebar">
       <Button
         className="sidebar__compose"
         startIcon={<AddIcon fontSize="large" />}
