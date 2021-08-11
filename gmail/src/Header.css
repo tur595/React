@@ -46,4 +46,5 @@
 .header__right > .avatar {
   margin-top: 4px;
   margin-left: 10px;
+  cursor: pointer;
 }
