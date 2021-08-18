@@ -2,7 +2,7 @@ import Image from "next/image";
 import {
   BellIcon,
   ChatIcon,
-  ChevronIcon,
+  ChevronDownIcon,
   HomeIcon,
   UserGroupIcon,
   ViewGridIcon,
@@ -30,7 +30,7 @@ function Header() {
           <input
             type="text"
             placeholder="Search Facebook"
-            className="flex ml-2 items-center bg-transparent outline-none
+            className="hidden md:inline-flex ml-2 items-center bg-transparent outline-none
              placeholder-gray-500 flex-shrink"
           />
         </div>
@@ -38,12 +38,22 @@ function Header() {
 
       <div className="flex justify-center flex-grow">
         <div className="flex space-x-6 md:space-x-2">
-          <HeaderIcon Icon={HomeIcon} />
+          <HeaderIcon Icon={HomeIcon} active />
           <HeaderIcon Icon={FlagIcon} />
           <HeaderIcon Icon={PlayIcon} />
           <HeaderIcon Icon={ShoppingCartIcon} />
           <HeaderIcon Icon={UserGroupIcon} />
         </div>
+      </div>
+
+      <div className="flex items-center sm:space-x-2 justify-end">
+        {/* <Image /> */}
+
+        <p className="whitespace-nowrap font-semibold">John Doe</p>
+        <ViewGridIcon className="icon" />
+        <ChatIcon className="icon" />
+        <BellIcon className="icon" />
+        <ChevronDownIcon className="icon" />
       </div>
     </div>
   );
