@@ -24,7 +24,6 @@ const stories = [
 ];
 
 function Stories() {
-  console.log(stories);
   return (
     <div className="flex justify-center space-x-3 mx-auto">
       {stories.map((story) => (
