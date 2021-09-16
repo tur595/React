@@ -34,7 +34,7 @@ function Product({ id, title, price, description, category, image }) {
       <p className="text-sm my-2 line-clamp-2">{description}</p>
 
       <div className="mb-5">
-        <Currency quantity={price} currency="NOK" />
+        <Currency quantity={price * 8.62} currency="NOK" />
       </div>
 
       {hasPrime && (
@@ -44,7 +44,7 @@ function Product({ id, title, price, description, category, image }) {
         </div>
       )}
 
-      <button>Add to basket</button>
+      <button className="mt-auto button">Add to basket</button>
     </div>
   );
 }
