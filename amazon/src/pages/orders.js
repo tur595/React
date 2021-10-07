@@ -29,3 +29,42 @@ function Orders({ orders }) {
 }
 
 export default Orders;
+
+export async function getServerSideProps(context) {
+  const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      props: {},
+    };
+  }
+
+  const stripeOrders = await db
+    .collection("users")
+    .doc(session.user.email)
+    .collection("orders")
+    .orderBy("timestamp", "desc")
+    .get();
+
+  const orders = await Promise.all(
+    stripeOrders.docs.map(async (order) => ({
+      id: order.id,
+      amount: order.data().amount,
+      amountShipping: order.data().amount_shipping,
+      images: order.data().images,
+      timestamp: moment(order.data().timestamp.toDate()).unix(),
+      items: (
+        await stripe.checkout.sessions.listLineItems(order.id, {
+          limit: 100,
+        })
+      ).data,
+    }))
+  );
+  return {
+    props: {
+      orders,
+    },
+  };
+}
