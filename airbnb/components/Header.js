@@ -13,6 +13,7 @@ import { DateRangePicker } from "react-date-range";
 
 function Header() {
   const [searchInput, setSearchInput] = useState("");
+  const [noOfGuests, setNoOfGuests] = useState(1);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
@@ -21,10 +22,14 @@ function Header() {
     setEndDate(ranges.selection.endDate);
   };
 
+  const resetInput = () => {
+    setSearchInput("");
+  };
+
   const selectionRange = {
     startDate: startDate,
     endDate: endDate,
-    key: "Selection",
+    key: "selection",
   };
 
   return (
@@ -59,13 +64,33 @@ function Header() {
       </div>
 
       {searchInput && (
-        <div>
+        <div className="flex flex-col col-span-3 mx-auto">
           <DateRangePicker
             ranges={[selectionRange]}
             minDate={new Date()}
             rangeColors={["#ff6b70"]}
             onChange={handleSelect}
           />
+          <div className="flex items-center border-b mb-4">
+            <h2 className="text-2xl flex-grow font-semibold">
+              Number of Guests
+            </h2>
+
+            <UsersIcon className="h-5" />
+            <input
+              value={noOfGuests}
+              onChange={(e) => setNoOfGuests(e.target.value)}
+              className="w-12 pl-2 text-lg outline-none text-red-400"
+              type="number"
+              min={1}
+            />
+          </div>
+          <div className="flex">
+            <button onClick={resetInput} className="flex-grow text-gray-500">
+              Cancel
+            </button>
+            <button className="flex-grow text-red-400">Search</button>
+          </div>
         </div>
       )}
     </header>
