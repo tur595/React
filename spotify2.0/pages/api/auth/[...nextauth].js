@@ -49,7 +49,7 @@ export default NextAuth({
           ...token,
           accessToken: account.access_token,
           refreshToken: account.refresh_token,
-          username: accpunt.providerAccountId,
+          username: account.providerAccountId,
           accessTokenExpires: account.expires_at = 1000,
         }
       }
