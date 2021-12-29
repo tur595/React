@@ -5,9 +5,9 @@ import { RecoilRoot } from "recoil"
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <SessionProvider session={session}>
-      <Recoilroot>
+      <RecoilRoot>
        <Component {...pageProps} />
-      </Recoilroot>
+      </RecoilRoot>
     </SessionProvider>
   )
 }
