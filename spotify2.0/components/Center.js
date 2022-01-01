@@ -2,9 +2,11 @@ import { ChevronDownIcon } from "@heroicons/react/outline";
 import { shuffle } from "lodash";
 import { useSession } from "next-auth/react"
 import { useEffect, useState } from "react";
+import { ColorExtractor } from "react-color-extractor";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { playlistIdState, playlistState } from "../atoms/playlistAtom";
 import useSpotify from "../hooks/useSpotify";
+import Songs from "./Songs";
 
 const colors = [
     "from-indigo-500",
@@ -33,8 +35,6 @@ function Center() {
         }).catch((err) => console.log("Error!", err))
     }, [spotifyApi, playlistId])
 
-    console.log(playlist)
-
     return (
         <div className="flex-grow">
             <header className="absolute top-5 right-8">
@@ -45,11 +45,22 @@ function Center() {
                 </div>
                 
             </header>
-
-            <section className={`flex items-end space-x-7 bg-gradient-to-b to-black ${color} h-80 text-white p-8`}>
+            <section className={`flex items-end space-x-7 bg-gradient-to-b ${color} to-black h-80 text-white p-8`}>
                 
+            <ColorExtractor getColors={imageColors => console.log(imageColors)} >
+                    <img className="h-44 w-44 shadow-2xl" src={playlist?.images?.[0]?.url} alt="" />
+            </ColorExtractor>
+                
+                <div>
+                    <p>PLAYLIST</p>
+                    <h1 className="text-2xl md:text-3xl xl:text-5xl font-bold">{playlist?.name}</h1>
+                </div>
 
             </section>
+
+            <div>
+                <Songs />
+            </div>
         </div>
     )
 }
