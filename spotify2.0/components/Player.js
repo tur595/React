@@ -4,6 +4,8 @@ import { useRecoilState } from "recoil";
 import { currentTrackIdState, isPlayingState } from "../atoms/songAtom";
 import useSongInfo from "../hooks/useSongInfo";
 import useSpotify from "../hooks/useSpotify"
+import {FastForwardIcon, PauseIcon, PlayIcon, ReplyIcon, RewindIcon, SwitchHorizontalIcon, VolumeUpIcon} from "@heroicons/react/solid"
+import {VolumeUpIcon as VolumeDownIcon} from "@heroicons/react/outline"
 
 function Player() {
     const spotifyApi = useSpotify();
@@ -24,6 +26,18 @@ function Player() {
         }
     }
 
+    const handlePlayPause = () => {
+        spotifyApi.getMyCurrentPlaybackState().then((data) => {
+            if(data.body.is_playing){
+                spotifyApi.pause();
+                setIsPlaying(false);
+            } else {
+                spotifyApi.play();
+                setIsPlaying(true);
+            }
+        })
+    }
+
     useEffect(() => {
         if(spotifyApi.getAccessToken() && !currentTrackId){
             fetchCurrentSong();
@@ -41,8 +55,23 @@ function Player() {
                 </div>
             </div>
 
-            <div>
-                
+            <div className="flex items-center justify-evenly">
+                <SwitchHorizontalIcon className="button"/>
+                <RewindIcon className="button"/>
+
+                {isPlaying ? (
+                    <PauseIcon onClick={handlePlayPause} className="button w-10 h-10" />
+                ) : (
+                    <PlayIcon onClick={handlePlayPause} className="button w-10 h-10" />
+                )}
+                <FastForwardIcon className="button" />
+                <ReplyIcon className="button" />
+            </div>
+
+            <div className="flex items-center space-x-3 md:space-x-4 justify-end pr-5">
+                <VolumeDownIcon className="button"/>
+                    <input className="w-14 md:w-28" type="range" value={volume} onChange={} min={0} max={100} />
+                <VolumeUpIcon className="button"/>
             </div>
         </div>
     )
