@@ -4,7 +4,7 @@ import { useMoralis } from 'react-moralis'
 import Header from '../components/Header';
 
 export default function Home() {
-  const { isAuthenticated, logout } = useMoralis();
+  const { isAuthenticated } = useMoralis();
 
   if (!isAuthenticated) return <Login />
 
@@ -18,8 +18,6 @@ export default function Home() {
         <div className='max-w-screen-2xl mx-auto'>
           <Header />
         </div>
-
-      <button onClick={logout}>Logout</button>
     </div>
   )
 }
