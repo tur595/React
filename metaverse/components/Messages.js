@@ -18,12 +18,12 @@ function Messages() {
     )
 
     return (
-      <div className="pb-56">
+      <div className="pb-[7.5rem]">
           <div className="my-5">
               <ByMoralis variant="dark" style={{ marginLeft: "auto", marginRight: "auto"}}/>
           </div>
 
-          <div>
+          <div className="space-y-10 p-4">
             {data.map(message => (
               <Message key={message.id} message={message} />
             ))}
@@ -35,6 +35,7 @@ function Messages() {
 
           <div ref={endOfMessagesRef} className="text-center text-gray-400 mt-5">
               <p>You're up to date {user.getUsername()}!</p>
+              <p className="italic text-xs">Messages from the last 15 minutes are shown.</p>
           </div>
       </div>
     )
