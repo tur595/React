@@ -2,8 +2,9 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import Header from "../components/Header";
+import { sanityClient, urlFor } from "../sanity";
 
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <div className="max-w-7xl mx-auto">
       <Head>
@@ -36,3 +37,25 @@ export default function Home() {
     </div>
   );
 }
+
+export const getServerSideProps = async () => {
+  const query = `*[_type == "post"]{
+    _id,
+    title,
+    author -> {
+    name,
+    image
+  },
+    description,
+    slug,
+    mainImage,
+  }`;
+
+  const posts = await sanityClient.fetch(query);
+
+  return {
+    props: {
+      posts,
+    },
+  };
+};
