@@ -10,7 +10,7 @@ function Post({ post }) {
       <Header />
       {post.mainImage && (
         <img
-          className="w-full h-40 object-cover"
+          className="w-full h-96 object-cover"
           src={urlFor(post.mainImage).url()}
           alt=""
         />
@@ -44,18 +44,18 @@ function Post({ post }) {
             projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
             content={post.body}
             serializers={{
-              h1: (props) => {
-                <h1 className="text-2xl font-bold my-5" {...props} />;
-              },
-              h2: (props) => {
-                <h2 className="text-xl font-bold my-5" {...props} />;
-              },
-              li: ({ children }) => {
-                <li className="ml-4 list-disc">{children}</li>;
-              },
-              link: ({ href, children }) => {
-                <a className="text-blue-500 hover:underline">{children}</a>;
-              },
+              h1: (props) => (
+                <h1 className="text-2xl font-bold my-5" {...props} />
+              ),
+              h2: (props) => (
+                <h2 className="text-xl font-bold my-5" {...props} />
+              ),
+              li: ({ children }) => (
+                <li className="ml-4 list-disc">{children}</li>
+              ),
+              link: ({ href, children }) => (
+                <a className="text-blue-500 hover:underline">{children}</a>
+              ),
             }}
           />
         </div>
