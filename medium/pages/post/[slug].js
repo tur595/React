@@ -11,6 +11,19 @@ function Post({ post }) {
     formState: { errors },
   } = useForm();
 
+  const onSubmit = async (data) => {
+    fetch("/api/createComment", {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+      .then(() => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <main>
       <Header />
@@ -69,7 +82,10 @@ function Post({ post }) {
 
       <hr className="max-w-lg my-5 mx-auto border border-yellow-500" />
 
-      <form className="flex flex-col p-5 max-w-2xl mx-auto mb-10">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col p-5 max-w-2xl mx-auto mb-10"
+      >
         <h3 className="text-sm text-yellow-500">Enjoyed this article?</h3>
         <h4 className="text-3xl font-bold">Leave a comment below!</h4>
         <hr className="py-3 mt-2" />
@@ -83,6 +99,9 @@ function Post({ post }) {
             className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring ring-1"
             placeholder="John Appleseed"
           />
+          {errors.name && (
+            <span className="text-red-500">* Name field is required</span>
+          )}
         </label>
         <label className="block mb-5">
           <span className="text-gray-700">Email</span>
@@ -90,7 +109,11 @@ function Post({ post }) {
             {...register("email", { required: true })}
             className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring ring-1"
             placeholder="john.appleseed@xyz.com"
+            type="email"
           />
+          {errors.email && (
+            <span className="text-red-500">* Email field is required</span>
+          )}
         </label>
         <label className="block mb-5">
           <span className="text-gray-700">Comment</span>
@@ -100,20 +123,10 @@ function Post({ post }) {
             placeholder="Pretty nice article..."
             rows={8}
           />
-        </label>
-
-        <div className="flex flex-col p-5">
-          {errors.name && (
-            <span className="text-red-500">* Name field is required</span>
-          )}
-          {errors.email && (
-            <span className="text-red-500">* Email field is required</span>
-          )}
           {errors.comment && (
             <span className="text-red-500">* Comment field is required</span>
           )}
-        </div>
-
+        </label>
         <input
           type="submit"
           className="shadow bg-yellow-500 hover:bg-yellow-400 cursor-pointer focus:shadow-outline focus:outline-none text-white font-bold px-4 py-2 rounded"
