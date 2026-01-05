@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   GlobeAltIcon,
   MenuIcon,
@@ -52,11 +51,10 @@ function Header({ placeholder }) {
         onClick={() => router.push("/")}
         className="relative flex items-center h-10 cursor-pointer my-auto"
       >
-        <Image
+        <img
           src="https://links.papareact.com/qd3"
-          layout="fill"
-          objectFit="contain"
-          objectPosition="left"
+          alt="Airbnb logo"
+          className="absolute inset-0 w-full h-full object-contain object-left"
         />
       </div>
 
