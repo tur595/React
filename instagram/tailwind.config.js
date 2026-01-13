@@ -1,11 +1,5 @@
 module.exports = {
-  purge: {
-    enabled: true,
-    content: ["./src/**/*.js", "./src/**/**/*.js"],
-  },
-  future: {
-    removeDeprecatedGapUtilities: true,
-  },
+  content: ["./src/**/*.js", "./src/**/**/*.js"],
   theme: {
     fill: (theme) => ({
       red: theme("colors.red.primary"),
@@ -30,6 +24,8 @@ module.exports = {
     },
   },
   variants: {
-    display: ["group-hover"],
+    extend: {
+      display: ["group-hover"],
+    },
   },
 };
